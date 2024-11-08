@@ -1,0 +1,24 @@
+<h1>Event binding</h1>
+
+<p>
+  Nos permite escuchar y responder a las acciones del usuario, como por ejemplo:
+  pulsaciones de teclas, movimientos del mouse, clicks
+</p>
+
+<hr />
+
+<ul *ngFor="let city of cities">
+  <li
+    (click)="onCityClicked(city)"
+    [ngClass]="{ selected: city === selection }"
+  >
+    {{ city }}
+  </li>
+</ul>
+
+<br />
+
+<div *ngIf="selection">
+  <p>Tu ciudad es: {{ selection }}</p>
+  <button (click)="onClear()" class="btn btn-primary">Limpiar selección</button>
+</div>

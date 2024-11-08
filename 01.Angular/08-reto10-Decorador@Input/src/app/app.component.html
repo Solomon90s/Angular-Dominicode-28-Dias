@@ -1,0 +1,33 @@
+<h1>Decorador Input</h1>
+<br />
+<p>
+  Un decorador es un tipo especial de declaración que se puede adjuntar a una
+  clase, método, descriptor de acceso, propiedad o parámetro
+</p>
+<p>
+  El decorador input (nos permite comunicarnos entre componentes) en un
+  component (o directiva) hijo significa que la propiedad puede recibir su valor
+  de su component padre.
+</p>
+
+<hr />
+
+<ul>
+  <li
+    *ngFor="let city of cities"
+    (click)="onCityClicked(city)"
+    [ngClass]="{ selected: city === selection }"
+  >
+    {{ city }}
+  </li>
+</ul>
+
+<br />
+
+<div *ngIf="selection">
+  <p>Tu ciudad es: {{ selection }}</p>
+  <!-- <button (click)="onClear()" class="btn btn-primary">
+    Limpiar selección
+  </button> -->
+  <app-button (click)="onClear()" [label]="'Limpiar selección'"></app-button>
+</div>

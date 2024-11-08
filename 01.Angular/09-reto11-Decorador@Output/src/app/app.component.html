@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <h1>Decorador Output</h1>
+      <br />
+      <p>
+        Un decorador es un tipo especial de declaración que se puede adjuntar a
+        una clase, método, descriptor de acceso, propiedad o parámetro
+      </p>
+      <p>
+        El decorador Output es un component (o directiva) hijo que permite que
+        los datos fluyan del hijo al padre.
+      </p>
+      <hr />
+      <div class="col-md-12 my-3">
+        <!--
+        ? Hacemos uso del event binding
+        ? Llamamos a nuestro evento que es (newItemEvent)="addNewCity($event)"
+        ? y este llama al método para añadir una ciudad a la lista y al método le pasamos el $event
+        -->
+        <app-form-new-item
+          (newItemEvent)="addNewCity($event)"
+          [label]="'city'"
+          [className]="'btn-info'"
+        ></app-form-new-item>
+      </div>
+      <ul>
+        <li
+          *ngFor="let city of cities"
+          (click)="onCityClicked(city)"
+          [ngClass]="{ selected: city === selection }"
+        >
+          {{ city }}
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-4">
+      <div *ngIf="selection">
+        <p>Tu ciudad es: {{ selection }}</p>
+        <app-button
+          (click)="onClear()"
+          [label]="'Limpiar selección'"
+        ></app-button>
+      </div>
+    </div>
+  </div>
+</div>

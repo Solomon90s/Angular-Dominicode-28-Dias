@@ -1,0 +1,31 @@
+/* You can add global styles to this file, and also import other style files */
+.selected {
+  background-color: #16f460;
+  color: black;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.unSelected {
+  background-color: white;
+  padding: 10px;
+}
+
+.blue {
+  color: blue;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.overlay{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(74, 74, 74,.8);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

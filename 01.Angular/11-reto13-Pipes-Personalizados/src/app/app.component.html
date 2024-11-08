@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 my-3">
+      <h1>Pipe</h1>
+      <br />
+      <p>
+        El cometido principal de los pipes es transformar datos, los pipes reciben un dato y pueden transformar ese dato.
+      </p>
+      <p>
+        De forma predeterminada los Pipes, se definen como puros, de modo que Angular ejecuta el Pipe solo cuando detecta un
+        cambio puro en el valor de entrada. <br>
+        Los pipes pueden ser puros o impuros.
+      </p>
+      <a href="https://angular.dev/guide/pipes" target="_blank">Pipes Angular</a>
+      <hr />
+      <div class="col-md-8">
+        <app-form-new-item
+        (newItemEvent)="addNewCity($event)"
+        [label]="'city'"
+        [className]="'btn-info'"
+      ></app-form-new-item>
+      <hr>
+        <app-cities *ngFor="let city of cities | filter: criterio" (cityClickedEvent)="onCityClicked($event)" [city]="city" [selection]="selection"></app-cities>
+        <!--
+        ? Hacemos uso del event binding
+        ? Llamamos a nuestro evento que es (newItemEvent)="addNewCity($event)"
+        ? y este llama al método para añadir una ciudad a la lista y al método le pasamos el $event
+        -->
+      </div>
+    </div>
+    <div class="col-md-6 my-3">
+      <input type="text" class="form-control" placeholder="Filter..."  [(ngModel)]="criterio">
+    </div>
+    <div class="col-md-4">
+      <div *ngIf="selection">
+        <p>Tu ciudad es: {{ selection }}</p>
+        <app-button
+          (click)="onClear()"
+          [label]="'Limpiar selección'"
+        ></app-button>
+      </div>
+    </div>
+    <br>
+    <br>
+    <h3>Uso de Pipes</h3>
+    <hr>
+    <p>{{'08/27/24, 12:08 PM' | date:'full' }}</p>
+    <p>Mi cumpleaños {{'08/27/24, 12:08 PM' | date:'full' | uppercase }}</p>
+    <p>{{ '999' | currency }}</p>
+    <p>{{ '999' | currency:'EUR' }}</p>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+<div class="row justify-content-center">
+<div class="col-6">
+  <h1>Esto es un cold-observable</h1>
+  <h3 *ngIf="data$ | async as myData">
+    {{ myData.title }}
+  </h3>
+</div>
+</div>

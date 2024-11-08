@@ -1,0 +1,4 @@
+.miLista:hover {
+  transform: scale(105%);
+  padding: 25px;
+}

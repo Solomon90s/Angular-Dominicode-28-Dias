@@ -1,0 +1,11 @@
+<div class="row justify-content-center">
+  <div class="col-6">
+    <h1>Higher Order Observables</h1>
+    <a href="https://rxjs.dev/guide/higher-order-observables" target="_blank">Observables de order superior</a>
+    <ng-container *ngIf="data$ | async as item">
+      <ul class="list-group my-3">
+        {{ item.name }}
+      </ul>
+    </ng-container>
+  </div>
+</div>

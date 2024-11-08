@@ -1,0 +1,15 @@
+<ul class="list-group">
+  <li
+    class="list-group-item mt-1"
+    (click)="onCitySelected(city)"
+    [ngClass]="{ active: city?._id === selection?._id }">
+    {{ city?.name | titlecase }}
+    <button
+      *ngIf="city?._id === selection?._id"
+      type="button"
+      (click)="onCityDelete(city._id)"
+      class="btn btn-danger float-end">
+      Delete
+    </button>
+  </li>
+</ul>

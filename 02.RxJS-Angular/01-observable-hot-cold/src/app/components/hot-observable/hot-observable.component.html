@@ -1,0 +1,11 @@
+<div class="row justify-content-center">
+  <div class="col-6">
+    <h1>Esto es un hot observable</h1>
+    <button class="btn btn-info mx-2" (click)="start()">Start</button>
+    <button class="btn btn-primary mx-2" (click)="stop()">Stop</button>
+    <p>{{ counter }}</p>
+  </div>
+</div>
+<hr>
+<p>Los observables Hot son aquellos que envían eventos cuando no estás suscrito al observable. Como los movimientos del ratón, o los ticks del temporizador o cualquier cosa por el estilo. Los observables Cold son aquellos que empiezan a pulsar sólo cuando te suscribes, y vuelven a empezar si te suscribes de nuevo.</p>
+<a href="https://blog.kaleidos.net/RxJS-Hot-vs-Cold/" target="_blank">Observables hot y cold</a>

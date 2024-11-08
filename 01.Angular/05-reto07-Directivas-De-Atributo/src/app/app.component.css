@@ -1,0 +1,15 @@
+.selected {
+  background-color: #16f460;
+  color: black;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.unSelected {
+  background-color: white;
+  padding: 10px;
+}
+
+.blue {
+  color: blue;
+}

@@ -1,0 +1,26 @@
+<h1>Directivas (ngIf, ngFor)</h1>
+<p>Las directivas son como atributos que pueden cambiar la apariencia o el comportamiento del DOM element</p>
+<h2>ngFor</h2>
+<ul class="list-group" *ngFor="let city of cities">
+  <li class="list-group-item">{{city}}</li>
+</ul>
+<hr>
+<br>
+
+<h3>ngIf</h3>
+<!--Cuando name tenga valor muesta la etiqueta párrafo-->
+<p *ngIf="name">El nombre es: {{name}}</p>
+<input type="text" [(ngModel)]="name">
+<hr>
+<br>
+
+<h2>Directivas de atributo, ngClass, ngStyle( no es recomendable, porque mezcla html y css)</h2>
+<h5>Directiva ngClass</h5>
+<ul class="list-group" *ngFor="let city of cities">
+  <!--Le pasamos strings-->
+  <!-- <li [ngClass]="'selected blue'" class="list-group-item">{{city}}</li> -->
+  <!--Le pasamos un array-->
+  <!-- <li [ngClass]="['selected', 'blue']" class="list-group-item">{{city}}</li> -->
+  <!--Le pasamos un objeto y le indicamos la condición, le podemos indicar más condiciones-->
+  <li [ngClass]="{'selected': city === 'Madrid', 'blue':city !== 'Barcelona'}" class="list-group-item">{{city}}</li>
+</ul>

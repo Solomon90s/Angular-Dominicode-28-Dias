@@ -1,0 +1,14 @@
+<h1>Directivas (ngIf, ngFor)</h1>
+<p>Las directivas son como atributos que pueden cambiar la apariencia o el comportamiento del DOM element</p>
+<hr>
+<br>
+<h2>ngFor</h2>
+<ul>
+  <li *ngFor="let city of cities">{{city}}</li>
+</ul>
+<hr>
+<br>
+<h3>ngIf</h3>
+<!--Cuando name tenga valor muestra la etiqueta párrafo-->
+<p *ngIf="name">El nombre es: {{name}}</p>
+<input type="text" [(ngModel)]="name">

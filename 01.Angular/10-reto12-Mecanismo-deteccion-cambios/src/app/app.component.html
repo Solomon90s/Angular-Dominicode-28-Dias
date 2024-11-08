@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 my-3">
+      <h1>Change Detection</h1>
+      <br />
+      <p>
+        Es el mecanismo o estrategia de detección de cambios
+        que utiliza Angular para saber cuando actualizar un componente o toda la vista
+        en caso de que la data haya cambiado.
+      </p>
+      <p>
+        Las estrategias son dos:.
+      </p>
+      <ul class="list-group">
+        <li class="list-group-item"><strong>Onpush:</strong> Establece la estrategia en CheckOnce (bajo demanda)</li>
+        <li class="list-group-item"><strong>Default:</strong> Establece la estrategia en CheckAlways.</li>
+      </ul>
+      <hr />
+      <div class="col-md-8">
+        <app-form-new-item
+        (newItemEvent)="addNewCity($event)"
+        [label]="'city'"
+        [className]="'btn-info'"
+      ></app-form-new-item>
+      <hr>
+        <app-cities *ngFor="let city of cities" (cityClickedEvent)="onCityClicked($event)" [city]="city" [selection]="selection"></app-cities>
+        <!--
+        ? Hacemos uso del event binding
+        ? Llamamos a nuestro evento que es (newItemEvent)="addNewCity($event)"
+        ? y este llama al método para añadir una ciudad a la lista y al método le pasamos el $event
+        -->
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div *ngIf="selection">
+        <p>Tu ciudad es: {{ selection }}</p>
+        <app-button
+          (click)="onClear()"
+          [label]="'Limpiar selección'"
+        ></app-button>
+      </div>
+    </div>
+  </div>
+</div>

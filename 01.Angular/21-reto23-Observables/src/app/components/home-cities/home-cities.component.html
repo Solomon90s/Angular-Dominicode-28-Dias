@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+    <div class="col-6 my-3">
+      <app-form-new-item
+        (updateItemEvent)="updateCity($event)"
+        (newItemEvent)="addNewCity($event)"
+        [selection]="selection"
+        [label]="'City'"
+        [className]="'btn-info'"></app-form-new-item>
+      <hr />
+      <app-cities
+        *ngFor="let city of cities | filter: criteria"
+        (cityDeleteEvent)="onCityDelete($event)"
+        (citySelectedEvent)="onCitySelected($event)"
+        [city]="city"
+        [selection]="selection"></app-cities>
+      <!--
+        ? Hacemos uso del event binding
+        ? Llamamos a nuestro evento que es (newItemEvent)="addNewCity($event)"
+        ? y este llama al método para añadir una ciudad a la lista y al método le pasamos el $event
+        -->
+    </div>
+    <div class="col-6 my-3">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Filter..."
+        [(ngModel)]="criteria" />
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div *ngIf="selection?.name">
+      <p>Tu ciudad es: {{ selection?.name }}</p>
+      <app-button
+        (click)="onClear()"
+        [label]="'Limpiar selección'"></app-button>
+    </div>
+  </div>
+</div>
